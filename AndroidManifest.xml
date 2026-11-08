@@ -1,0 +1,36 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <queries>
+        <package android:name="com.whatsapp" />
+        <package android:name="com.microsoft.teams" />
+        <package android:name="com.microsoft.teams2" />
+        <package android:name="com.microsoft.office.outlook" />
+        <package android:name="com.microsoft.skydrive" />
+    </queries>
+    <application
+        android:allowBackup="false"
+        android:label="HarelKB"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.HarelKB">
+        <activity android:name=".SetupActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SettingsActivity" android:exported="false" />
+        <service
+            android:name=".AIKeyboardService"
+            android:label="HarelKB"
+            android:permission="android.permission.BIND_INPUT_METHOD"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.view.InputMethod" />
+            </intent-filter>
+            <meta-data
+                android:name="android.view.im"
+                android:resource="@xml/method" />
+        </service>
+    </application>
+</manifest>
